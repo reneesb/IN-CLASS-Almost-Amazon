@@ -1,4 +1,5 @@
 import { deleteBook, getBooks } from '../api/bookData';
+import addBookForm from '../components/forms/addBookForm';
 import { showBooks } from '../pages/books';
 
 const domEvents = () => {
@@ -7,16 +8,18 @@ const domEvents = () => {
     if (e.target.id.includes('delete-book')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
-        console.warn('CLICKED DELETE BOOK', e.target.id);
-        console.warn(e.target.id.split('--'));
+        const [, firebaseKey] = e.target.id.split('--');
+
+        deleteBook(firebaseKey).then(() => {
+          getBooks().then(showBooks);
+        });
       }
     }
 
     // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
     if (e.target.id.includes('add-book-btn')) {
-      console.warn('ADD BOOK');
+      addBookForm();
     }
-
     // TODO: CLICK EVENT EDITING/UPDATING A BOOK
     if (e.target.id.includes('edit-book-btn')) {
       console.warn('EDIT BOOK', e.target.id);
