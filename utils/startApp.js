@@ -15,5 +15,4 @@ const startApp = () => {
 
   // TODO: Put all books on the DOM on App load
 };
-
 export default startApp;
