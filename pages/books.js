@@ -21,7 +21,7 @@ const showBooks = (array) => {
           <h5 class="card-title">${item.title}</h5>
             <p class="card-text bold">${item.sale ? `<span class="badge badge-info sale-badge"><i class="fa fa-bell" aria-hidden="true"></i> Sale</span> $${item.price}` : `$${item.price}`}</p>
             <hr>
-            <i class="btn btn-success" id="view-book-btn--${item.firebaseKey}">View</i>
+            <i id="view-book-btn"-- ${item.firebaseKey}" class="btn btn-success">View</i>
             <i id="edit-book-btn--${item.firebaseKey}" class="btn btn-info">Edit</i>
             <i id="delete-book-btn--${item.firebaseKey}" class="btn btn-danger">Delete</i>
         </div>
